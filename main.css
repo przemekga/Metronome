@@ -42,6 +42,22 @@
     font-weight: bold;
 }
 
+#plus {
+    float: right;
+    margin-right: 20px;
+}
+#plus:hover {
+    cursor: pointer;
+}
+
+#minus {
+    float: left;
+    margin-left: 20px;
+}
+#minus:hover {
+    cursor: pointer;
+}
+
 .presetcontainer {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#939393+0,000000+100&0.65+0,0+100 */
     background: -moz-linear-gradient(45deg,  rgba(147,147,147,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
