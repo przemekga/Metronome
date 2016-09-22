@@ -1,45 +1,60 @@
-var start = false;      //default state - off
-var speedMs = 60000;    //milliseconds in one second
-var interval;           //Interval id for clearInterval
-var st = $('.start');   //START button
-var presetSpeed = 60;   //preset bpm (60 as default)
+// var start = false;      //default state - off
+// var speedMs = 60000;    //milliseconds in one second
+// var interval;           //Interval id for clearInterval
+// var st = $('.start');   //START button
+// var presetSpeed = 60;   //preset bpm (60 as default)
 
-$(function(){    
-    
+$(function(){
+    var presetSpeed = 60;
+    var config = {
+        settings: {
+            start: false,      //default state - off
+            speedMs: 60000,    //milliseconds in one second
+            interval: undefined //Interval id for clearInterval
+        },
+
+        selectors: {
+            st : $('.start'),  //START button
+            plus: $('#plus'),
+            minus: $('#minus'),
+            speed: $('#speed'),
+            preset: $('.preset')
+        }
+    }
     //START button
     
-    $('.start').on('click', function(){
+    config.selectors.st.on('click', function(){
         
-        if (st.text() === 'START') {
-            st.text('STOP');
+        if (config.selectors.st.text() === 'START') {
+            config.selectors.st.text('STOP');
         }
         else {
-            st.text('START');
-            clearInterval(interval);
+            config.selectors.st.text('START');
+            clearInterval(config.settings.interval);
         }
-        buttonPress(presetSpeed, start);
+        buttonPress(presetSpeed, config.settings.start);
     });    
     
     //Plus and minus
-    
-    $('#plus').on('click', function() {
-        clearInterval(interval);
+
+    config.selectors.plus.on('click', function() {
+        clearInterval(config.settings.interval);
         presetSpeed++;
-        $('#speed').text(presetSpeed);
+        config.selectors.speed.text(presetSpeed);
         if (start) {
             buttonPress(presetSpeed, false);
         }
     });
-    
-    $('#minus').on('click', function() {
-        clearInterval(interval);
+
+    config.selectors.minus.on('click', function() {
+        clearInterval(config.settings.interval);
         if (presetSpeed > 0) {
             presetSpeed--;
         }
         else {
             return;
         }
-        $('#speed').text(presetSpeed);
+        config.selectors.speed.text(presetSpeed);
         if (start) {
             buttonPress(presetSpeed, false);
         }
@@ -47,21 +62,21 @@ $(function(){
     
     
     //Preset buttons
-    
-    $('.preset').on('click', function() {
+
+    config.selectors.preset.on('click', function() {
         presetSpeed = $(this).text();
-        clearInterval(interval);
+        clearInterval(config.settings.interval);
         if (start) {
             buttonPress(presetSpeed, false);
         }
-        $('#speed').text(presetSpeed);
+        config.selectors.speed.text(presetSpeed);
     });   
     
     //Metronome sound function
     
     function click() {
         if (!start) {
-            clearInterval(interval);
+            clearInterval(config.settings.interval);
             return;
         }
         audio = new Audio();
@@ -74,7 +89,7 @@ $(function(){
     function buttonPress(bpmX, startX) {
         if (!startX) {
             startX = true;
-            interval = setInterval(click, speedMs / bpmX);
+            config.settings.interval = setInterval(click, speedMs / bpmX);
         }
         else {
             startX = false;
