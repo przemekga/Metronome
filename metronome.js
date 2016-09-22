@@ -1,10 +1,10 @@
 var metronome = function(){
-    var presetSpeed = 60;
     var config = {
         settings: {
             start: false,      //default state - off
             speedMs: 60000,    //milliseconds in one second
-            interval: undefined //Interval id for clearInterval
+            interval: undefined, //Interval id for clearInterval
+            presetSpeed: 60
         },
 
         selectors: {
@@ -28,31 +28,31 @@ var metronome = function(){
                 config.selectors.st.text('START');
                 clearInterval(config.settings.interval);
             }
-            buttonPress(presetSpeed, config.settings.start);
+            buttonPress(config.settings.presetSpeed, config.settings.start);
         });
 
         //Plus and minus
 
         config.selectors.plus.on('click', function () {
             clearInterval(config.settings.interval);
-            presetSpeed++;
-            config.selectors.speed.text(presetSpeed);
+            config.settings.presetSpeed++;
+            config.selectors.speed.text(config.settings.presetSpeed);
             if (config.settings.start) {
-                buttonPress(presetSpeed, false);
+                buttonPress(config.settings.presetSpeed, false);
             }
         });
 
         config.selectors.minus.on('click', function () {
             clearInterval(config.settings.interval);
-            if (presetSpeed > 0) {
-                presetSpeed--;
+            if (config.settings.presetSpeed > 0) {
+                config.settings.presetSpeed--;
             }
             else {
                 return;
             }
-            config.selectors.speed.text(presetSpeed);
+            config.selectors.speed.text(config.settings.presetSpeed);
             if (config.settings.start) {
-                buttonPress(presetSpeed, false);
+                buttonPress(config.settings.presetSpeed, false);
             }
         });
 
@@ -60,12 +60,12 @@ var metronome = function(){
         //Preset buttons
 
         config.selectors.preset.on('click', function () {
-            presetSpeed = $(this).text();
+            config.settings.presetSpeed = $(this).text();
             clearInterval(config.settings.interval);
             if (config.settings.start) {
-                buttonPress(presetSpeed, false);
+                buttonPress(config.settings.presetSpeed, false);
             }
-            config.selectors.speed.text(presetSpeed);
+            config.selectors.speed.text(config.settings.presetSpeed);
         });
 
         //Metronome sound function
