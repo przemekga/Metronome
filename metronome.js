@@ -14,7 +14,7 @@ var metronome = function(){
             speed: $('#speed'),
             preset: $('.preset')
         }
-    }
+    };
 
     function init() {
 
@@ -78,7 +78,7 @@ var metronome = function(){
             audio = new Audio();
             audio.src = "audio/click.mp3";
             audio.play();
-        };
+        }
 
         //Function for switching on/off
 
@@ -93,6 +93,7 @@ var metronome = function(){
 
             config.settings.start = startX;
         }
+
     }
     return {
         init:init,
