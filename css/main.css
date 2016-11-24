@@ -1,0 +1,79 @@
+.metronome {
+    margin: 0 auto;
+    margin-top: 10%;
+    width: 160px;
+    height: auto;
+    text-align: center;
+
+}
+
+.start {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    height: 100px;
+    width: inherit;
+    line-height: 100px;
+/*    border: 1px solid gray;*/
+    display: inline-block;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+.currentspeed {
+    height: 50px;
+    line-height: 50px;
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: bold;
+    width: inherit;
+    border: 2px solid #337ab7;
+}
+
+#plus {
+    float: right;
+    margin-right: 20px;
+}
+#plus:hover {
+    cursor: pointer;
+}
+
+#minus {
+    float: left;
+    margin-left: 20px;
+}
+#minus:hover {
+    cursor: pointer;
+}
+
+.presetcontainer {
+    background: #337ab7;
+    height: 260px;
+    padding-top: 10px;
+    padding-left: 3px;
+    width: inherit;
+
+}
+
+.preset {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 33px;
+    padding: 0;
+    margin-right: 3px;
+    margin-top: 4px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.timers {
+    margin-top: 20%;
+}
+
+#minutes {
+    width: 30px;
+}
+
+#seconds {
+    width: 30px;
+}
