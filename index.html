@@ -3,43 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Metronome</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="main.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="container">
-        <button class="start">START</button>
-        <div class="currentspeed">
-            <span id="minus"><img src="./images/minus.png" alt=""></span>
-            <span id="speed">60</span>
-            <span id="plus"><img src="./images/plus.png" alt=""></span>
+<div class="container">
+    <div class="row">
+
+        <div class="metronome">
+            <button class="start btn btn-primary">START</button>
+            <div class="currentspeed">
+                <span id="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                <span id="speed">60</span>
+                <span id="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+            </div>
+            <div id="pContainer" class="presetcontainer">
+                <button class="preset btn btn-default">30</button>
+                <button class="preset btn btn-default">40</button>
+                <button class="preset btn btn-default">50</button>
+                <button class="preset btn btn-default">60</button>
+                <button class="preset btn btn-default">70</button>
+                <button class="preset btn btn-default">80</button>
+                <button class="preset btn btn-default">90</button>
+                <button class="preset btn btn-default">100</button>
+                <button class="preset btn btn-default">110</button>
+                <button class="preset btn btn-default">120</button>
+                <button class="preset btn btn-default">130</button>
+                <button class="preset btn btn-default">140</button>
+                <button class="preset btn btn-default">150</button>
+                <button class="preset btn btn-default">160</button>
+                <button class="preset btn btn-default">170</button>
+                <button class="preset btn btn-default">180</button>
+                <button class="preset btn btn-default">190</button>
+                <button class="preset btn btn-default">200</button>
+            </div>
         </div>
-        <div id="pContainer" class="presetcontainer">
-            <button class="preset">30</button>
-            <button class="preset">40</button>
-            <button class="preset">50</button>
-            <button class="preset">60</button>
-            <button class="preset">70</button>
-            <button class="preset">80</button>
-            <button class="preset">90</button>
-            <button class="preset">100</button>
-            <button class="preset">110</button>
-            <button class="preset">120</button>
-            <button class="preset">130</button>
-            <button class="preset">140</button>
-            <button class="preset">150</button>
-            <button class="preset">160</button>
-            <button class="preset">170</button>
-            <button class="preset">180</button>
-            <button class="preset">190</button>
-            <button class="preset">200</button>
-        </div>
-        
-        
     </div>
-
+</div>
 <script src="jquery-2.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="metronome.js"></script>
-
+<script src="timer.js"></script>
 </body>
 </html>
